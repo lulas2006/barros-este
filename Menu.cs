@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Node2D : Godot.Node2D
+public partial class Menu : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -13,18 +13,17 @@ public partial class Node2D : Godot.Node2D
 	{
 	}
 	
-	private void _on_quit_pressed()
-	{
-	GetTree().Quit();
-	}
-
-	private void _on_play_pressed()
+private void _on_new_game_pressed()
 	{
 	GetTree().ChangeSceneToFile("res://world.tscn");
 	}
+
+
+private void _on_quit_pressed()
+{ 
+	GetTree().Quit();
 }
-
-
+}
 
 
 

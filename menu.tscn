@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bcqomgqx01bti"]
+[gd_scene load_steps=6 format=3 uid="uid://bcqomgqx01bti"]
 
-[ext_resource type="Script" path="res://Menu.cs" id="1_4b2em"]
-[ext_resource type="Script" path="res://Quit.cs" id="2_pqaav"]
-[ext_resource type="FontFile" uid="uid://dxk43ues72pfe" path="res://Kenney Pixel Square.ttf" id="3_60pc1"]
+[ext_resource type="Script" path="res://Script/Menu/Menu.cs" id="1_4b2em"]
+[ext_resource type="FontFile" uid="uid://dxk43ues72pfe" path="res://assets/Kenney Pixel Square.ttf" id="3_60pc1"]
 [ext_resource type="PackedScene" uid="uid://d0ykbch4hedjy" path="res://bg.tscn" id="5_m4diu"]
 
 [sub_resource type="FontVariation" id="FontVariation_knjja"]
@@ -28,7 +27,6 @@ theme_override_fonts/font = ExtResource("3_60pc1")
 theme_override_font_sizes/font_size = 25
 text = "Quit
 "
-script = ExtResource("2_pqaav")
 
 [node name="New Game" type="Button" parent="."]
 offset_left = 405.0

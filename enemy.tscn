@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dnbeksngurr86"]
+[gd_scene load_steps=16 format=3 uid="uid://dnbeksngurr86"]
 
 [ext_resource type="Script" path="res://Script/Enemy/enemy.cs" id="1_qkttq"]
 [ext_resource type="Texture2D" uid="uid://dqgi2qogs6ogb" path="res://sprites/characters/Massacre_idle.png" id="2_3iesj"]
@@ -63,10 +63,64 @@ animations = [{
 
 [sub_resource type="Animation" id="Animation_pxxfh"]
 resource_name = "Idle"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_jppqb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rjjtm"]
 _data = {
-"Idle": SubResource("Animation_pxxfh")
+"Idle": SubResource("Animation_pxxfh"),
+"RESET": SubResource("Animation_jppqb")
 }
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k1tnw"]
@@ -89,6 +143,7 @@ animation = &"Idle"
 libraries = {
 "": SubResource("AnimationLibrary_rjjtm")
 }
+autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {

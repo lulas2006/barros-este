@@ -9,8 +9,12 @@ public partial class enemy : CharacterBody2D
 	Vector2 mobPosition = Vector2.Zero;
 	Vector2 targetPosition = Vector2.Zero;
 	
+	public AnimationPlayer animationPlayer;
+	
 	public override void _PhysicsProcess(double delta)
 	{
+		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
+		
 		Vector2 velocity = Velocity;
 		mobPosition = this.Position;
 		playerPosition = GetNode<CharacterBody2D>($"../Player").Position;
@@ -20,6 +24,9 @@ public partial class enemy : CharacterBody2D
 
 		if (mobPosition.DistanceTo(playerPosition) < 100) {
 			velocity = targetPosition;
+			//animationPlayer.Play("Run");
+		} else {
+			animationPlayer.Play("Idle");
 		}
 
 		velocity = velocity * Speed;

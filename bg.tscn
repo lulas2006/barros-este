@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://d0ykbch4hedjy"]
 
-[ext_resource type="Texture2D" uid="uid://crrp205x4040t" path="res://desktop-wallpaper-dark-space-minimal-art-chromebook-pixel.jpg" id="1_8s4jf"]
-[ext_resource type="Script" path="res://bg.cs" id="1_kyqpu"]
-[ext_resource type="Texture2D" uid="uid://b2g2m03wgvn73" path="res://pixel-art-illustration-moon-pixelated-moon-shiny-moon-pixelated-for-the-pixel-art-game-and-icon-for-website-and-video-game-old-school-retro-vector-removebg-preview.png" id="3_vktgs"]
-[ext_resource type="Texture2D" uid="uid://2n6ic5vfb56v" path="res://pixel-art-fictional-planet-png-removebg-preview.png" id="4_na5jp"]
+[ext_resource type="Texture2D" uid="uid://crrp205x4040t" path="res://assets/desktop-wallpaper-dark-space-minimal-art-chromebook-pixel.jpg" id="1_8s4jf"]
+[ext_resource type="Script" path="res://Script/Menu/bg.cs" id="1_kyqpu"]
+[ext_resource type="Texture2D" uid="uid://dviywlwackc0d" path="res://assets/pixel-art-illustration-moon-pixelated-moon-shiny-moon-pixelated-for-the-pixel-art-game-and-icon-for-website-and-video-game-old-school-retro-vector-removebg-preview.png" id="3_vktgs"]
+[ext_resource type="Texture2D" uid="uid://2n6ic5vfb56v" path="res://assets/pixel-art-fictional-planet-png-removebg-preview.png" id="4_na5jp"]
 
 [node name="Bg" type="ParallaxBackground"]
 script = ExtResource("1_kyqpu")

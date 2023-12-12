@@ -3,7 +3,7 @@ using System;
 
 public partial class player : CharacterBody2D
 {
-	public const float speed = 250f; //original 200
+	public const float speed = 300f; //original 200
 	
 	public AnimationPlayer animationPlayer;
 
@@ -14,8 +14,8 @@ public partial class player : CharacterBody2D
 	
 	public override void _PhysicsProcess(double delta)
 	{
-		GetInput();
-		MoveAndSlide();
+		Vector2 velocity = Velocity;
+		Velocity = velocity;
 
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 
@@ -36,5 +36,8 @@ public partial class player : CharacterBody2D
 		} else if(Input.IsActionPressed("down")) {
 			animationPlayer.Play("Run");
 		}
+
+		GetInput();
+		MoveAndSlide();
 	}
 }

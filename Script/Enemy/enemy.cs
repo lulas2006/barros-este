@@ -22,7 +22,7 @@ public partial class enemy : CharacterBody2D
 
 		velocity = Vector2.Zero;
 
-		if (mobPosition.DistanceTo(playerPosition) < 100) {
+		if (mobPosition.DistanceTo(playerPosition) < 2000) {
 			velocity = targetPosition;
 			//animationPlayer.Play("Run");
 		} else {

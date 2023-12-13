@@ -119,8 +119,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t476"]
-
 [sub_resource type="Animation" id="Animation_el8o8"]
 resource_name = "Idle"
 length = 0.55
@@ -212,6 +210,8 @@ _data = {
 "Run": SubResource("Animation_j0vtg")
 }
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t476"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_krmnc")
 
@@ -225,6 +225,9 @@ sprite_frames = SubResource("SpriteFrames_bobyo")
 animation = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_med7w")
+}
 tree_root = SubResource("AnimationNodeStateMachine_8t476")
 anim_player = NodePath("../AnimationPlayer")
 

@@ -38,13 +38,13 @@ theme_override_font_sizes/font_size = 25
 text = "New Game"
 
 [node name="Label" type="Label" parent="."]
-offset_left = 253.0
-offset_top = 40.0
-offset_right = 854.0
-offset_bottom = 177.0
+offset_left = 72.0
+offset_top = 128.0
+offset_right = 1085.0
+offset_bottom = 281.0
 theme_override_fonts/font = ExtResource("3_60pc1")
 theme_override_font_sizes/font_size = 50
-text = "QuantaX
+text = "Apocalypse Now
 "
 label_settings = SubResource("LabelSettings_upchi")
 horizontal_alignment = 1

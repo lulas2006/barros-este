@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://5knu54flgjcj"]
+[gd_scene load_steps=29 format=3 uid="uid://5knu54flgjcj"]
 
 [ext_resource type="Script" path="res://Script/Player/player.cs" id="1_krmnc"]
 [ext_resource type="Texture2D" uid="uid://c3yexyffefxwc" path="res://sprites/characters/Jotem_idle.png" id="2_2qamq"]
 [ext_resource type="Texture2D" uid="uid://cx5vtue7j5kyk" path="res://sprites/characters/Jotem_run.png" id="2_7114m"]
+[ext_resource type="Theme" uid="uid://c2t7d0ur3rude" path="res://Script/Health/theme.tres" id="4_gbypa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mytkk"]
 radius = 16.0
@@ -119,8 +120,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t476"]
-
 [sub_resource type="Animation" id="Animation_el8o8"]
 resource_name = "Idle"
 length = 0.55
@@ -212,6 +211,18 @@ _data = {
 "Run": SubResource("Animation_j0vtg")
 }
 
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8t476"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ip3n1"]
+bg_color = Color(0.223529, 0.223529, 0.223529, 0.933333)
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_shbhs"]
+bg_color = Color(0.772549, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oe1f8"]
+radius = 32.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_krmnc")
 
@@ -225,6 +236,9 @@ sprite_frames = SubResource("SpriteFrames_bobyo")
 animation = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_med7w")
+}
 tree_root = SubResource("AnimationNodeStateMachine_8t476")
 anim_player = NodePath("../AnimationPlayer")
 
@@ -238,3 +252,26 @@ limit_left = -5600
 limit_top = -2945
 limit_right = 5775
 limit_bottom = 3425
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_left = -24.0
+offset_top = 32.0
+offset_right = 24.0
+offset_bottom = 40.0
+theme = ExtResource("4_gbypa")
+theme_override_styles/background = SubResource("StyleBoxFlat_ip3n1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_shbhs")
+value = 10.0
+show_percentage = false
+
+[node name="PlayerHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHitBox"]
+shape = SubResource("CircleShape2D_oe1f8")
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="body_entered" from="PlayerHitBox" to="." method="_on_player_hit_box_body_entered"]
+[connection signal="body_exited" from="PlayerHitBox" to="." method="_on_player_hit_box_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]

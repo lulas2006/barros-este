@@ -22,9 +22,16 @@ public partial class enemy : CharacterBody2D
 
 		velocity = Vector2.Zero;
 
-		if (mobPosition.DistanceTo(playerPosition) < 2000) {
+		if (mobPosition.DistanceTo(playerPosition) < 200) {
 			velocity = targetPosition;
-			//animationPlayer.Play("Run");
+			animationPlayer.Play("Run");
+			if(velocity.X < 0) {
+				animationPlayer.Play("Run");
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
+			} else if (velocity.X > 0) {
+				animationPlayer.Play("Run");
+				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = true;
+			}
 		} else {
 			animationPlayer.Play("Idle");
 		}
@@ -33,6 +40,10 @@ public partial class enemy : CharacterBody2D
 		Velocity = velocity;
 
 		MoveAndSlide();
+	}
+
+	public void Enemy() {
+
 	}
 
 }

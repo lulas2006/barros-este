@@ -31,8 +31,7 @@ public partial class player : CharacterBody2D
 		if(health <= 0) {
 			playerAlive = false;
 			health = 0;
-			GD.Print("Player Died");
-			GetTree().ChangeSceneToFile("res://menu.tscn");
+			GetTree().ChangeSceneToFile("res://game_over.tscn");
 		}
 
 		Movement();

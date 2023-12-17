@@ -8,6 +8,7 @@ public partial class enemy : CharacterBody2D
 	Vector2 playerPosition;
 	Vector2 mobPosition = Vector2.Zero;
 	Vector2 targetPosition = Vector2.Zero;
+	
 	public AnimationPlayer animationPlayer;
 	
 	public override void _PhysicsProcess(double delta)
@@ -39,6 +40,10 @@ public partial class enemy : CharacterBody2D
 		Velocity = velocity;
 
 		MoveAndSlide();
+	}
+
+	public void Enemy() {
+
 	}
 
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dnbeksngurr86"]
+[gd_scene load_steps=23 format=3 uid="uid://dnbeksngurr86"]
 
 [ext_resource type="Script" path="res://Script/Enemy/enemy.cs" id="1_qkttq"]
 [ext_resource type="Texture2D" uid="uid://dqgi2qogs6ogb" path="res://sprites/characters/Massacre_idle.png" id="2_3iesj"]
@@ -190,6 +190,9 @@ _data = {
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_k1tnw"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0722n"]
+radius = 32.0
+
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_qkttq")
 
@@ -202,11 +205,19 @@ sprite_frames = SubResource("SpriteFrames_k02g3")
 animation = &"Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_rjjtm")
 }
+autoplay = "Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_rjjtm")
+}
 tree_root = SubResource("AnimationNodeStateMachine_k1tnw")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="EnemyHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyHitBox"]
+shape = SubResource("CircleShape2D_0722n")

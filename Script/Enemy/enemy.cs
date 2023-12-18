@@ -11,6 +11,8 @@ public partial class enemy : CharacterBody2D
 	
 	public AnimationPlayer animationPlayer;
 	
+	bool player_in_att_zone = false;
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		animationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
@@ -45,6 +47,24 @@ public partial class enemy : CharacterBody2D
 	public void Enemy() {
 
 	}
+	
+	
+	private void _on_enemy_hit_box_body_entered(Node2D body)
+	{
+		if(body.HasMethod("Player")) {
+			player_in_att_zone = true;
+		}
+	}
 
+
+	private void _on_enemy_hit_box_body_exited(Node2D body)
+	{
+		if(body.HasMethod("Player")) {
+			player_in_att_zone = false;
+		}
+	}
+
+	public void DealWithDamage() {
+		
+	}
 }
-

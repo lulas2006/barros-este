@@ -91,4 +91,8 @@ public partial class player : CharacterBody2D
 	{
 		en_attack_cooldown = true;
 	}
+	
+	public void Player() {
+		
+	}
 }

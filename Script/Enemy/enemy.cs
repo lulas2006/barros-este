@@ -3,7 +3,7 @@ using System;
 
 public partial class enemy : CharacterBody2D
 {
-	public const float Speed = 150f;
+	public const float Speed = 200f;
 
 	Vector2 playerPosition;
 	Vector2 mobPosition = Vector2.Zero;

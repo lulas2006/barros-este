@@ -14,9 +14,9 @@ public partial class game_over : Node2D
 	}
 	
 	private void _on_return_pressed()
-{
+	{
 		GetTree().ChangeSceneToFile("res://main.tscn");
-}
+	}
 }
 
 

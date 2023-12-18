@@ -3,6 +3,7 @@ using System;
 
 public partial class enemy : CharacterBody2D
 {
+	Global global = new Global();
 	public const float Speed = 150f;
 
 	Vector2 playerPosition;
@@ -12,6 +13,7 @@ public partial class enemy : CharacterBody2D
 	public AnimationPlayer animationPlayer;
 	
 	bool player_in_att_zone = false;
+	public int health = 100; 
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -41,13 +43,9 @@ public partial class enemy : CharacterBody2D
 		velocity = velocity * Speed;
 		Velocity = velocity;
 
+		DealWithDamage();
 		MoveAndSlide();
 	}
-
-	public void Enemy() {
-
-	}
-	
 	
 	private void _on_enemy_hit_box_body_entered(Node2D body)
 	{
@@ -65,6 +63,13 @@ public partial class enemy : CharacterBody2D
 	}
 
 	public void DealWithDamage() {
-		
+		if(player_in_att_zone && global.player_cu_att == true) {
+			health = health - 20;
+			GD.Print("slime health" + health);
+		}
+	}
+	
+	public void Enemy() {
+
 	}
 }

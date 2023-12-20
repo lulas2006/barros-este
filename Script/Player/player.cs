@@ -13,7 +13,6 @@ public partial class player : CharacterBody2D
 	bool en_range = false;
 	bool en_attack_cooldown = true;
 	bool playerAlive = true;
-	bool attacking = false;
 
 	public int health = 100;
 
@@ -92,13 +91,6 @@ public partial class player : CharacterBody2D
 	private void _on_cooldown_timeout()
 	{
 		en_attack_cooldown = true;
-	}
-	
-	public void Attack() {
-		if(Input.IsActionJustPressed("attack")) {
-			global.player_cu_att = true;
-			attacking = true;
-		}
 	}
 	
 	public void Player() {

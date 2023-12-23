@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcqomgqx01bti"]
+[gd_scene load_steps=6 format=3 uid="uid://bhpodaiuc85sd"]
 
 [ext_resource type="Script" path="res://Script/Menu/Menu.cs" id="1_4b2em"]
 [ext_resource type="FontFile" uid="uid://dxk43ues72pfe" path="res://assets/Kenney Pixel Square.ttf" id="3_60pc1"]

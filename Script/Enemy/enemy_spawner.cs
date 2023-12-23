@@ -12,15 +12,9 @@ public partial class enemy_spawner : Node2D
 		timer.Start();
 	}
 
-	
 	private void _on_timer_timeout()
 	{
-		inst();
-	}
-
-	public void inst() {
 		var enemy1 = enemy2.Instantiate();
 		AddChild(enemy1);
 	}
 }
-

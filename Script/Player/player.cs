@@ -3,7 +3,6 @@ using System;
 
 public partial class player : CharacterBody2D
 {
-	Global global = new Global();
 	public const float speed = 300f; //original 200
 	
 	public AnimationPlayer animationPlayer;
@@ -93,7 +92,5 @@ public partial class player : CharacterBody2D
 		en_attack_cooldown = true;
 	}
 	
-	public void Player() {
-		
-	}
+	public void Player() { }
 }

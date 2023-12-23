@@ -3,7 +3,6 @@ using System;
 
 public partial class enemy : CharacterBody2D
 {
-	Global global = new Global();
 	public const float Speed = 150f;
 
 	Vector2 playerPosition;
@@ -25,7 +24,7 @@ public partial class enemy : CharacterBody2D
 
 		velocity = Vector2.Zero;
 
-		if (mobPosition.DistanceTo(playerPosition) < 200) {
+		if (mobPosition.DistanceTo(playerPosition) < 50000) {
 			velocity = targetPosition;
 			animationPlayer.Play("Run");
 			if(velocity.X < 0) {
@@ -60,7 +59,5 @@ public partial class enemy : CharacterBody2D
 		}
 	}
 
-	public void Enemy() {
-
-	}
+	public void Enemy() { }
 }

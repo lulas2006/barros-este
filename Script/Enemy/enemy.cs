@@ -3,13 +3,15 @@ using System;
 
 public partial class enemy : CharacterBody2D
 {
-	public const float Speed = 200f;
+	public const float Speed = 150f;
 
 	Vector2 playerPosition;
 	Vector2 mobPosition = Vector2.Zero;
 	Vector2 targetPosition = Vector2.Zero;
 	
 	public AnimationPlayer animationPlayer;
+	
+	bool player_in_att_zone = false; 
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -22,7 +24,7 @@ public partial class enemy : CharacterBody2D
 
 		velocity = Vector2.Zero;
 
-		if (mobPosition.DistanceTo(playerPosition) < 200) {
+		if (mobPosition.DistanceTo(playerPosition) < 50000) {
 			velocity = targetPosition;
 			animationPlayer.Play("Run");
 			if(velocity.X < 0) {
@@ -41,10 +43,21 @@ public partial class enemy : CharacterBody2D
 
 		MoveAndSlide();
 	}
-
-	public void Enemy() {
-
+	
+	private void _on_enemy_hit_box_body_entered(Node2D body)
+	{
+		if(body.HasMethod("Player")) {
+			player_in_att_zone = true;
+		}
 	}
 
-}
 
+	private void _on_enemy_hit_box_body_exited(Node2D body)
+	{
+		if(body.HasMethod("Player")) {
+			player_in_att_zone = false;
+		}
+	}
+
+	public void Enemy() { }
+}

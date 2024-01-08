@@ -1,13 +1,34 @@
-[gd_scene load_steps=29 format=3 uid="uid://5knu54flgjcj"]
+[gd_scene load_steps=36 format=3 uid="uid://c0gwl18jory4c"]
 
 [ext_resource type="Script" path="res://Script/Player/player.cs" id="1_krmnc"]
 [ext_resource type="Texture2D" uid="uid://c3yexyffefxwc" path="res://sprites/characters/Jotem_idle.png" id="2_2qamq"]
 [ext_resource type="Texture2D" uid="uid://cx5vtue7j5kyk" path="res://sprites/characters/Jotem_run.png" id="2_7114m"]
+[ext_resource type="Texture2D" uid="uid://drgm4v4mspkf7" path="res://sprites/characters/Jotem attack1.png" id="2_g1esd"]
 [ext_resource type="Theme" uid="uid://c2t7d0ur3rude" path="res://Script/Health/theme.tres" id="4_gbypa"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mytkk"]
 radius = 16.0
 height = 48.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmeca"]
+atlas = ExtResource("2_g1esd")
+region = Rect2(0, 0, 126, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gic2x"]
+atlas = ExtResource("2_g1esd")
+region = Rect2(126, 0, 126, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j7tp"]
+atlas = ExtResource("2_g1esd")
+region = Rect2(252, 0, 126, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_335d1"]
+atlas = ExtResource("2_g1esd")
+region = Rect2(378, 0, 126, 79)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4768"]
+atlas = ExtResource("2_g1esd")
+region = Rect2(504, 0, 126, 79)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul6xy"]
 atlas = ExtResource("2_2qamq")
@@ -69,6 +90,26 @@ region = Rect2(896, 0, 128, 83)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pmeca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gic2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j7tp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_335d1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4768")
+}],
+"loop": true,
+"name": &"Attack1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ul6xy")
 }, {
 "duration": 1.0,
@@ -119,6 +160,34 @@ animations = [{
 "name": &"Run",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_x6e74"]
+resource_name = "Attack1"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
 [sub_resource type="Animation" id="Animation_el8o8"]
 resource_name = "Idle"
@@ -206,6 +275,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_med7w"]
 _data = {
+"Attack1": SubResource("Animation_x6e74"),
 "Idle": SubResource("Animation_el8o8"),
 "RESET": SubResource("Animation_b11p3"),
 "Run": SubResource("Animation_j0vtg")
@@ -221,7 +291,7 @@ border_color = Color(1, 1, 1, 1)
 bg_color = Color(0.772549, 0, 0, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_oe1f8"]
-radius = 32.0
+radius = 24.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_krmnc")

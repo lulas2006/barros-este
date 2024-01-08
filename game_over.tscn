@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://u3ryvyn83vi8"]
+[gd_scene load_steps=5 format=3 uid="uid://cj8snkko2n3ij"]
 
-[ext_resource type="Script" path="res://game_over.cs" id="1_dmdhi"]
+[ext_resource type="Script" path="res://Script/Death/game_over.cs" id="1_dmdhi"]
 [ext_resource type="Texture2D" uid="uid://crrp205x4040t" path="res://assets/desktop-wallpaper-dark-space-minimal-art-chromebook-pixel.jpg" id="1_wtuxr"]
 [ext_resource type="FontFile" uid="uid://dxk43ues72pfe" path="res://assets/Kenney Pixel Square.ttf" id="2_jyc67"]
 

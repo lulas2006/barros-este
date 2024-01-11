@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/Runaway.mp3-8911ce483822badee81016495eec5d21.
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

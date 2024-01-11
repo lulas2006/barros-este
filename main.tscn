@@ -10,3 +10,4 @@ script = ExtResource("1_8help")
 [node name="Menu" parent="." instance=ExtResource("1_07dg7")]
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("3_b7uyk")]
+volume_db = -10.0

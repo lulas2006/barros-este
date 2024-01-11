@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj8snkko2n3ij"]
+[gd_scene load_steps=5 format=3 uid="uid://c1mipfc26o14r"]
 
 [ext_resource type="Script" path="res://Script/Death/game_over.cs" id="1_dmdhi"]
 [ext_resource type="Texture2D" uid="uid://crrp205x4040t" path="res://assets/desktop-wallpaper-dark-space-minimal-art-chromebook-pixel.jpg" id="1_wtuxr"]

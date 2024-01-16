@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://xv4lmpmwfh7l"]
-
-[ext_resource type="AudioStream" uid="uid://bjrsp488tmrdk" path="res://Runaway.mp3" id="1_ikf0k"]
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer"]
-stream = ExtResource("1_ikf0k")
-autoplay = true

@@ -10,8 +10,12 @@ public partial class enemy_2 : CharacterBody2D
 	Vector2 targetPosition = Vector2.Zero;
 	
 	public AnimationPlayer animationPlayer;
+	public Timer timer;
 	
 	bool player_in_att_zone = false; 
+	public bool en_attack_cooldown = true;
+	public int enHealth = 25;
+	player Player = new player();
 	
 	public override void _PhysicsProcess(double delta)
 	{
@@ -35,18 +39,18 @@ public partial class enemy_2 : CharacterBody2D
 				GetNode<AnimatedSprite2D>("AnimatedSprite2D").FlipH = false;
 			}
 		} else {
-			//animationPlayer.Play("Idle");
+			animationPlayer.Play("Idle");
 		}
 
 		velocity = velocity * Speed;
 		Velocity = velocity;
-
+		
 		MoveAndSlide();
 	}
 	
 	private void _on_enemy_hit_box_body_entered(Node2D body)
 	{
-		if(body.HasMethod("Player")) {
+		if(body.Name == "Player") {
 			player_in_att_zone = true;
 		}
 	}
@@ -54,10 +58,42 @@ public partial class enemy_2 : CharacterBody2D
 
 	private void _on_enemy_hit_box_body_exited(Node2D body)
 	{
-		if(body.HasMethod("Player")) {
+		if(body.Name == "Player") {
 			player_in_att_zone = false;
 		}
 	}
 
-	public void Enemy() { }
+	private void _on_enemy_hit_box_area_entered(Area2D area)
+	{
+		if(area.Name == "SwordArea2D") {
+			if(enHealth - Player.swordDamage > 0) {
+				enHealth -= Player.swordDamage;
+			} else {
+				OnEnemyDeath();
+			}
+		}
+		
+		if(area.Name == "TiroAttack") {
+			if(enHealth - Player.tiroDamage > 0) {
+				enHealth -= Player.tiroDamage;
+			} else {
+				OnEnemyDeath();
+			}
+		}
+	}
+
+	private void SpawnCoin()
+	{
+		var scene = GD.Load<PackedScene>("res://coin.tscn");
+		var Coin = scene.Instantiate<coin>();
+		AddSibling(Coin);
+		Coin.Position = Position;
+	}
+
+	private void OnEnemyDeath()
+	{
+		enHealth = 0;
+		SpawnCoin();
+		QueueFree();
+	}
 }

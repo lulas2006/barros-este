@@ -7,10 +7,13 @@ public partial class hud : Node2D
 	public int min = 0;
 	public int Dseconds = 00;
 	public int Dmin = 5;
+	public int coinsCollected = 0;
 
-	public int CoinsCollected = 0;
-	public int CoinValue = 1;
+	public int CoinsValue = 1;
 	
+	public int swordDamage = 10;
+	public int tiroDamage = 5;
+
 	public override void _Process(double delta)
 	{
 	}
@@ -35,8 +38,13 @@ public partial class hud : Node2D
 		} else {
 			Label.Text = min.ToString() + ":" + seconds.ToString();
 		}
-		
+
 	}
+	
+	public static class Global
+{
+	public static int coinsCollected = 0;
+}
 	
 	public void TimerReset() {
 		seconds = Dseconds;
@@ -44,11 +52,37 @@ public partial class hud : Node2D
 	}
 
 	public void addCoin() {
-		CoinsCollected += CoinValue;
+		coinsCollected += CoinsValue;
 		var coinsDisplay = GetNode<Label>("Moedas");
-		coinsDisplay.Text = CoinsCollected + " coins";
+		coinsDisplay.Text = coinsCollected + " coins";
 	}
-	
-	
-	
+
+	private void _on_upgrade_1_pressed()
+	{
+		if (coinsCollected > 50)
+		{
+			coinsCollected -= 50;
+		}
+		else
+		{
+
+		}
+	}
+
+
+	private void _on_upgrade_2_pressed()
+	{
+		if (coinsCollected > 50)
+		{
+			coinsCollected -= 50;
+		}
+		else
+		{
+
+		}
+	}
 }
+
+
+
+

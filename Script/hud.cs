@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.InteropServices;
 
 public partial class hud : Node2D
 {
@@ -10,12 +11,13 @@ public partial class hud : Node2D
 	public int coinsCollected = 0;
 
 	public int CoinsValue = 1;
-	
-	public int swordDamage = 10;
-	public int tiroDamage = 5;
+
+
 
 	public override void _Process(double delta)
 	{
+		var coinsDisplay = GetNode<Label>("Moedas");
+		coinsDisplay.Text = coinsCollected + " coins";
 	}
 	
 	public override void _Ready()
@@ -41,11 +43,6 @@ public partial class hud : Node2D
 
 	}
 	
-	public static class Global
-{
-	public static int coinsCollected = 0;
-}
-	
 	public void TimerReset() {
 		seconds = Dseconds;
 		min = Dmin;
@@ -59,29 +56,49 @@ public partial class hud : Node2D
 
 	private void _on_upgrade_1_pressed()
 	{
-		if (coinsCollected > 50)
-		{
-			coinsCollected -= 50;
-		}
-		else
-		{
-
-		}
+	player Player = GetTree().Root.GetNode("World").GetNode<player>("Player");
+	if(coinsCollected >= 10 && Input.IsActionPressed("Upgrade1"))
+	{
+		coinsCollected -= 10;
+		Player.tiroDamage += 25;
+		GD.Print("upgrade1");
+	}
+	else
+	{
+	}
 	}
 
 
 	private void _on_upgrade_2_pressed()
 	{
-		if (coinsCollected > 50)
-		{
-			coinsCollected -= 50;
-		}
-		else
-		{
-
-		}
+  	player Player = GetTree().Root.GetNode("World").GetNode<player>("Player");
+	if(coinsCollected >= 1 && Input.IsActionPressed("Upgrade2"))
+	{
+		coinsCollected -= 1;
+		Player.swordDamage += 55;
+		GD.Print("udgrade2");
 	}
+	else
+	{
+	}
+	}
+
+	private void _on_upgrade_3_pressed()
+	{
+		player Player = GetTree().Root.GetNode("World").GetNode<player>("Player");
+		if(coinsCollected >= 1 && Player.health <= 90 && Input.IsActionPressed("Upgrade3"))
+	{
+		Player.health += 10;
+		coinsCollected -= 1;
+	}
+	else
+	{
+	}
+	}
+	
 }
+
+
 
 
 

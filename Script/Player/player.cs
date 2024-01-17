@@ -16,8 +16,6 @@ public partial class player : CharacterBody2D
 
 	public int health = 100;
 	public int damage;
-	
-
 
 	public Vector2 mousePos;
 	public Vector2 pos;
@@ -31,6 +29,7 @@ public partial class player : CharacterBody2D
 		Vector2 inputDirection = Input.GetVector("left", "right", "up", "down");
 		Velocity = inputDirection * speed;
 	}
+	
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -80,7 +79,7 @@ public partial class player : CharacterBody2D
 			tiro.velocity = 10;
 			AddSibling(tiro);
 			tiro.Visible = true;
-			await ToSignal(GetTree().CreateTimer(1.5f), SceneTreeTimer.SignalName.Timeout);
+			await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
 			pl_tiroattack_cooldown = true;
 		}
 	}
@@ -142,36 +141,5 @@ public partial class player : CharacterBody2D
 	}
 	
 	public override void _Ready() { }
-	
-	
-		private void _on_upgrade_1_pressed()
-	{
-		if (coinsCollected > 50)
-		{
-			swordDamage += 5;
-			coinsCollected -= 50;
-		}
-		else
-		{
-		}
-	}
-
-
-	private void _on_upgrade_2_pressed()
-	{
-		if (coinsCollected > 50)
-		{
-			tiroDamage += 2;
-			coinsCollected -= 50;
-		}
-		else
-		{
-		}
-	}
-	
-	public static class Global
-{
-	public static int coinsCollected = 0;
-}
 }
 

@@ -10,9 +10,6 @@ public partial class world : Node2D
 	public double multiplier = 5;
 	public double multiplierCooldown = 0;
 
-	public override void _Ready()
-	{
-	}
 	
 	public override void _Process(double delta) 
 	{
@@ -21,7 +18,8 @@ public partial class world : Node2D
 		
 		var ran = new Random();
 		
-		if (timePassed >= multiplier) {
+		if (timePassed >= multiplier) 
+		{
 			var enemy1 = GD.Load<PackedScene>("res://enemy.tscn");
 			var enemy2 = GD.Load<PackedScene>("res://enemy_2.tscn");
 			PackedScene[] mobs = {enemy1, enemy2};
@@ -37,8 +35,12 @@ public partial class world : Node2D
 			
 			timePassed = 0;
 		}
+
+
 		
-		if(multiplierCooldown >= 20 && multiplier >= 1) {
+		
+		if(multiplierCooldown >= 20 && multiplier >= 1) 
+		{
 			multiplier -= 0.5;
 			multiplierCooldown = 0;
 		}

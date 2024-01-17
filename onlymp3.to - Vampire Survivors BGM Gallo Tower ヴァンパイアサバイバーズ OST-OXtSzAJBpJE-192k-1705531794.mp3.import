@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cc6c44lbti76x"
+path="res://.godot/imported/onlymp3.to - Vampire Survivors BGM Gallo Tower ヴァンパイアサバイバーズ OST-OXtSzAJBpJE-192k-1705531794.mp3-be69d0a2b321dd98e624575058520292.mp3str"
+
+[deps]
+
+source_file="res://onlymp3.to - Vampire Survivors BGM Gallo Tower ヴァンパイアサバイバーズ OST-OXtSzAJBpJE-192k-1705531794.mp3"
+dest_files=["res://.godot/imported/onlymp3.to - Vampire Survivors BGM Gallo Tower ヴァンパイアサバイバーズ OST-OXtSzAJBpJE-192k-1705531794.mp3-be69d0a2b321dd98e624575058520292.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
